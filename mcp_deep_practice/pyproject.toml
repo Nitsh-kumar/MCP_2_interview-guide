@@ -1,0 +1,40 @@
+[project]
+name = "mcp-deep-practice"
+version = "1.0.0"
+description = "MCP 2026-07-28 Deep Practice Lab — learning workspace, not a distributable package"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "mcp==2.0.0",
+    "mcp-types==2.0.0",
+    "httpx2>=2.5.0",
+    "pydantic>=2.12.0",
+    "starlette>=0.40.0",
+    "sse-starlette>=3.0.0",
+    "uvicorn>=0.31.1",
+    "jsonschema>=4.20.0",
+    "pyjwt[crypto]>=2.10.1",
+    "opentelemetry-api>=1.28.0",
+    "opentelemetry-sdk>=1.28.0",
+    "rich>=13.9.4",
+    "typer>=0.16.0",
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+]
+
+# This workspace has no installable Python package — it is a script and learning
+# environment only. We declare a build system so uv can resolve the project,
+# but the wheel contains nothing (packages = []).
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+# Explicitly empty — nothing to install from this project itself.
+packages = []
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]

@@ -1,0 +1,55 @@
+# ─── Python ───────────────────────────────────────────────────────────────────
+.venv/
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# ─── uv ───────────────────────────────────────────────────────────────────────
+# uv.lock IS committed — it pins the exact curriculum baseline.
+# Do not gitignore it.
+
+# ─── Environment ──────────────────────────────────────────────────────────────
+.env
+# .env.example is committed intentionally.
+
+# ─── Secrets & Credentials ────────────────────────────────────────────────────
+*.pem
+*.key
+*.p12
+*.pfx
+jwt_secret.txt
+
+# ─── Test Outputs ─────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+coverage.xml
+*.log
+
+# ─── Editors ──────────────────────────────────────────────────────────────────
+.vscode/settings.json
+.idea/
+*.swp
+*.swo
+*~
+
+# ─── OS ───────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ─── Sandbox Data ─────────────────────────────────────────────────────────────
+# Sandbox directories created by capstone exercises.
+sandbox_data/
+
+# ─── Docker Artifacts ─────────────────────────────────────────────────────────
+# Optional lab containers — never committed.
+docker-compose.override.yml
+
+# ─── Inspector Recordings ─────────────────────────────────────────────────────
+shared/protocol_capture/recordings/
