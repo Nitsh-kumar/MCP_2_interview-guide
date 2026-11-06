@@ -1,9 +1,9 @@
 # MCP Deep Practice Lab
 
-> **Protocol target:** `2026-07-28`
-> **SDK baseline:** `mcp==2.0.0` / `mcp-types==2.0.0`
+> **Declared protocol target (needs compatibility verification):** `2026-07-28`
+> **Declared SDK baseline (not runtime-verified in this pass):** `mcp==2.0.0` / `mcp-types==2.0.0`
 > **Python:** `3.12+`
-> **Phase:** Foundation (Phase 0)
+> **Material present:** Foundation and lessons 00–08. Later phases are planned.
 
 ---
 
@@ -11,7 +11,7 @@
 
 This is a **learning repository**, not application source code.
 
-After completing this curriculum you will be able to:
+The full planned curriculum targets the capabilities below. Only the foundational lessons 00–08 are currently present:
 
 - Explain MCP without framework abstractions
 - Reason about raw protocol messages
@@ -86,26 +86,32 @@ uv run python scripts/run_lesson.py 00
 # Run all phase-0 verification tests
 uv run pytest tests/phase0 -v
 
-# Run full test suite
-uv run python scripts/verify_all.py
+# Run the implemented foundation and curriculum/reference tests
+uv run pytest tests/phase0 tests/phase1 -v
 ```
 
 ---
+
+## Verification limits
+
+The verification runner defaults to foundation checks. `--phase all` currently covers only foundation/fundamentals. A missing phase path can return success with zero tests, so this does not certify future phases. Exercise tests are intentionally separate from reference-solution checks. Saved test XML is historical evidence.
+
+Dependency availability and the version matrix need reconciliation with the examples before this guide is treated as authoritative. No fresh tests were run during the documentation pass of 13 October 2026.
 
 ## Curriculum Map
 
 See [`docs/learning_map.md`](docs/learning_map.md) for the full checklist.
 
-| Phase | Lessons | Topic |
-|---|---|---|
-| 0 | — | Foundation & environment |
-| 1 | 00–08 | MCP Fundamentals |
-| 2 | 09–13 | Modern MCP 2026-07-28 |
-| 3 | 14–20 | Production engineering |
-| 4 | 21–23 | Extensions |
-| 5 | 24–25 | Integration & migration |
-| 6 | C01–C30, D01–D15 | Challenges |
-| 7 | CAP01–CAP03 | Capstones |
+| Phase | Lessons | Topic | Material status |
+|---|---|---|---|
+| 0 | — | Foundation & environment | Present; requires verification |
+| 1 | 00–08 | MCP Fundamentals | Present; requires verification |
+| 2 | 09–13 | Modern MCP 2026-07-28 | Planned |
+| 3 | 14–20 | Production engineering | Planned |
+| 4 | 21–23 | Extensions | Planned |
+| 5 | 24–25 | Integration & migration | Planned |
+| 6 | C01–C30, D01–D15 | Challenges | Planned |
+| 7 | CAP01–CAP03 | Capstones | Planned |
 
 ---
 
@@ -139,10 +145,10 @@ It does **not** modify any parent repository's dependencies, lock files, environ
 | File | Purpose |
 |---|---|
 | [`docs/learning_map.md`](docs/learning_map.md) | Lesson checklist and mastery tracker |
-| [`docs/version_matrix.md`](docs/version_matrix.md) | Evidence-based SDK feature support |
+| [`docs/version_matrix.md`](docs/version_matrix.md) | Declared SDK assumptions; requires reconciliation |
 | [`docs/legacy_vs_modern.md`](docs/legacy_vs_modern.md) | Side-by-side protocol comparison |
 | [`docs/protocol_cheatsheet.md`](docs/protocol_cheatsheet.md) | Quick-reference wire format |
-| [`docs/terminology.md`](docs/terminology.md) | Authoritative glossary |
+| [`docs/terminology.md`](docs/terminology.md) | Learning glossary |
 | [`docs/security_model.md`](docs/security_model.md) | Threat model and security controls |
 | [`docs/production_checklist.md`](docs/production_checklist.md) | Pre-production validation checklist |
 | [`docs/references.md`](docs/references.md) | Authoritative, supplementary, and legacy sources |
